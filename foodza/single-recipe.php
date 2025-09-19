@@ -1,30 +1,62 @@
 <?php
-while (have_posts()) {
-    the_post();
+$recipeImage = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'single-recipe-image',
+  'field_name' => 'recipe-image',
+]);
+
+$ingredientList = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'ingredient-list',
+  'field_name' => 'ingredient-list',
+]);
+
+$instructionList = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'instruction-list',
+  'field_name' => 'instruction',
+]);
 ?>
-    <h1><?php the_title(); ?> </h1>
-    <img src="<?php the_post_thumbnail(); ?>" alt="">
-    <p><?php the_content(); ?></p>
-    <p>??</p>
 
-
-
+<?php if ($recipeImage): ?>
+<img src="<?php echo $recipeImage->getSrc(); ?>" alt="<?php echo $recipeImage->getAlt(); ?>">
 <?php
+endif;
+// echo '<pre>';
+//     print_r($recipeImage);
+//     print_r($ingredientList);
+//     print_r($instructionList);
+//     echo '</pre>';
+    ?>
 
+    <?php
+$ingredients = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'ingredient-list',
+  'field_name' => 'ingredients-section',
+]);
 
+$ingredients = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'ingredient-list',
+  'field_name' => 'ingredients-section',
+]);
 
+if ($ingredients) {
+  foreach ($ingredients as $group) {
+    echo '<h3>' . esc_html($group['ingredient-category']) . '</h3>';
+    echo '<ul>';
 
-
-}
-?>
-
-<?php
-$acf = get_fields(get_the_ID()); // eller $data['acf'] hvis du bruger REST API
-if ($acf) {
-    foreach ($acf as $key => $value) {
-        if (!empty($value)) {
-            echo '<p><strong>' . esc_html($key) . ':</strong> ' . esc_html($value) . '</p>';
-        }
+    // $group['ingredient-list'] is an array with one element (the list of items)
+    foreach ($group['ingredient-list'][0] as $item) {
+      echo '<li>' . esc_html($item['ingredient']) . '</li>';
     }
+
+    echo '</ul>';
+  }
 }
+
+echo '<pre>';
+print_r($ingredients);
+echo '</pre>';
 ?>
