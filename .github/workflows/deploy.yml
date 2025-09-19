@@ -20,4 +20,4 @@ jobs:
         target-server: ssh.cvw2wabs0.service.one
         remote-user: cvw2wabs0_ssh
         private-ssh-key: ${{ secrets.SSH_KEY }}
-        destination-path: /webroots/9d90f811/wp-content/themes/foodza
+        destination-path: /webroots/7a4ab272/wp-content/themes/foodza
