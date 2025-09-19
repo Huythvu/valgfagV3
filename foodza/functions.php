@@ -73,6 +73,24 @@ function custom_post_types()
         ),
         'menu_icon' => 'dashicons-admin-users'
     ));
+
+    register_post_type("test2", array(
+        // 'capability_type' => 'userprofile',
+        // 'map_meta_cap' => true,
+        'show_in_rest' => true, // Det gør at wordpress bliver moderne
+        'supports' => array('title', 'editor', 'excerpt'), // excerpt hvis vi skal have en kort tekst.
+        'rewrite' => array('slug' => 'userprofile'), // Vi ændrer urlen
+        'has_archive' => true, // 
+        'public' => true,
+        'labels' => array(
+            'name' => 'Userprofiles',
+            'add_new_item' => 'Add New userprofile',
+            'edit_item' => 'Edit userprofile',
+            'all_items' => 'All userprofile',
+            'singular_name' => 'userprofile'
+        ),
+        'menu_icon' => 'dashicons-admin-site'
+    ));
 }
 
 add_action('init', 'custom_post_types');
