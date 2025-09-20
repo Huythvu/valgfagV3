@@ -96,24 +96,25 @@ function custom_post_types()
 add_action('init', 'custom_post_types');
 
 
-    function singleRecipeImage($args = NULL) {
-        
-        if (!isset($args['title'])) {
-            $args['title'] = get_the_title();
+function singleRecipeImage($args = NULL)
+{
+
+    if (!isset($args['title'])) {
+        $args['title'] = get_the_title();
+    }
+
+    if (!isset($args['subtitle'])) {
+        $args['subtitle'] = get_field('page_banner_subtitle');
+    }
+
+    if (!isset($args['photo'])) {
+        if (get_field('page_banner_background_image') and !is_archive() and !is_home()) {
+            $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
+        } else {
+            $args['photo'] = get_theme_file_uri('/images/errorCat.png');
         }
-        
-        if (!isset($args['subtitle'])) {
-            $args['subtitle'] = get_field('page_banner_subtitle');
-        }
-        
-        if (!isset($args['photo'])) {
-            if (get_field('page_banner_background_image') AND !is_archive() AND !is_home() ) {
-                $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
-            } else {
-                $args['photo'] = get_theme_file_uri('/images/errorCat.png');
-            }
-        }
-        ?>
+    }
+?>
 
     <div class="page-banner">
         <div class="page-banner__bg-image" style="background-image: url(<?php echo $args['photo']; ?>)"></div>
@@ -124,7 +125,9 @@ add_action('init', 'custom_post_types');
             </div>
         </div>
     </div>
-    <?php }
+<?php }
+
+// Laver søge function test.
 
 
 ?>

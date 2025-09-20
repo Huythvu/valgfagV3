@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./" defer></script>
+
 </head>
+
 <body>
-    <header>
+  <header>
     <div>
       <h1>
         <a href="<?php echo home_url(); ?>"><strong>Foodza</strong></a>
@@ -30,11 +34,15 @@
         </div>
       </div>
     </div>
+    <input id="q" type="search" placeholder="Search recipes…" aria-label="Search recipes">
+    <button id="go" type="button">Search</button>
+    <div id="out" role="status" aria-live="polite"></div>
   </header>
 
   <main>
-  
+
 
   </main>
 </body>
+
 </html>
