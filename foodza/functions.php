@@ -124,7 +124,5 @@ add_action('init', 'custom_post_types');
             </div>
         </div>
     </div>
-    <?php }
-
-
+    <?php } 
 ?>

@@ -24,8 +24,16 @@
         </nav>
 
         <div>
-          <a href="#">Login</a>
-          <a href="#">Sign Up</a>
+            <?php if (is_user_logged_in()) { ?>
+                <a href="<?php echo wp_logout_url(); ?>">
+                <span><?php echo get_avatar(wp_get_current_user()->ID); ?></span>
+                <span>Log Out</span>
+                <!-- <span><?php echo wp_get_current_user()->display_name; ?></span>  -->
+                </a>
+            <?php } else { ?>
+                <a href="<?php echo wp_login_url(); ?>">Login</a>
+                <a href="<?php echo wp_registration_url(); ?>">Sign Up</a>
+            <?php } ?>
           <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         </div>
       </div>

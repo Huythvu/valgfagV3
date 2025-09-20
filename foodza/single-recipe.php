@@ -6,30 +6,21 @@ $recipeImage = get_acpt_field([
     'box_name'   => 'single-recipe-image',
     'field_name' => 'recipe-image',
 ]);
-
-$ingredientList = get_acpt_field([
-    'post_id'    => get_the_ID(),
-    'box_name'   => 'ingredient-list',
-    'field_name' => 'ingredient-list',
-]);
-
-$instructionList = get_acpt_field([
-    'post_id'    => get_the_ID(),
-    'box_name'   => 'instruction-list',
-    'field_name' => 'instruction',
-]);
 ?>
 
-<?php if ($recipeImage){ ?>
+<!-- Recipe Image, usually had esc_url for security, but didnt show img show removed -->
+<?php if ( $recipeImage ) { ?>
+  <img src="<?php echo ($recipeImage->getSrc()); ?>" 
+       alt="<?php echo ($recipeImage->getAlt()); ?>">
+<?php } ?>
 
-    <img src="<?php echo esc_url($recipeImage->getSrc()); ?>" alt="<?php echo esc_attr($recipeImage->getAlt()); ?>">
-<?php } 
-// echo '<pre>';
-    //     print_r($recipeImage);
-    //     print_r($ingredientList);
-    //     print_r($instructionList);
-    //     echo '</pre>';
-    ?>
+<!-- <?php 
+    echo '<pre>';
+    // print_r($recipeImage->getSrc());
+    // print_r($ingredientList);
+    // print_r($instructionList);
+    echo '</pre>';
+?> -->
 
 <?php
 $ingredients = get_acpt_field([
