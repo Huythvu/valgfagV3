@@ -128,6 +128,11 @@ function singleRecipeImage($args = NULL)
 <?php }
 
 // Laver søge function test.
-
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_script(
+        'recipe-search',
+        get_theme_file_uri('/modules/search.js')
+    );
+});
 
 ?>
