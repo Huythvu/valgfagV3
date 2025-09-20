@@ -18,44 +18,18 @@ $instructionList = get_acpt_field([
 ]);
 ?>
 
-<?php if ($recipeImage): ?>
-    <img src="<?php echo $recipeImage->getSrc(); ?>" alt="<?php echo $recipeImage->getAlt(); ?>">
-<?php
-endif;
+<?php if ($recipeImage){ ?>
+
+    <img src="<?php echo esc_url($recipeImage->getSrc()); ?>" alt="<?php echo esc_attr($recipeImage->getAlt()); ?>">
+<?php } 
 // echo '<pre>';
-//     print_r($recipeImage);
-//     print_r($ingredientList);
-//     print_r($instructionList);
-//     echo '</pre>';
-?>
+    //     print_r($recipeImage);
+    //     print_r($ingredientList);
+    //     print_r($instructionList);
+    //     echo '</pre>';
+    ?>
 
 <?php
-$ingredients = get_acpt_field([
-    'post_id'    => get_the_ID(),
-    'box_name'   => 'ingredient-list',
-    'field_name' => 'ingredients-section',
-]);
-
-$ingredients = get_acpt_field([
-    'post_id'    => get_the_ID(),
-    'box_name'   => 'ingredient-list',
-    'field_name' => 'ingredients-section',
-]);
-
-if ($ingredients) {
-    foreach ($ingredients as $group) {
-        echo '<h3>' . esc_html($group['ingredient-category']) . '</h3>';
-        echo '<ul>';
-
-        // $group['ingredient-list'] is an array with one element (the list of items)
-        foreach ($group['ingredient-list'][0] as $item) {
-            echo '<li>' . esc_html($item['ingredient']) . '</li>';
-        }
-
-        echo '</ul>';
-    }
-}
-
 $ingredients = get_acpt_field([
     'post_id'    => get_the_ID(),
     'box_name'   => 'ingredient-list',
@@ -91,8 +65,4 @@ if ($instruction) {
         echo '</ul>';
     }
 }
-
-echo '<pre>';
-print_r($ingredients);
-echo '</pre>';
 ?>
