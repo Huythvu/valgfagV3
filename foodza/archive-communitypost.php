@@ -2,8 +2,12 @@
 <main>
   <?php if (have_posts()) { ?>
     <?php while (have_posts()) { 
-        the_content(); 
-        ?>
+        the_post();
+        // the_title();
+    ?>
+
+    
+
 
     <?php
     $postImage = get_acpt_field([
@@ -17,13 +21,20 @@
 <?php if ( $postImage ) { ?>
   <img src="<?php echo ($postImage->getSrc()); ?>" 
        alt="<?php echo ($postImage->getAlt()); ?>">
-<?php } ?>
-  </article>
-    <?php } ?>
-
-  <?php } else { ?>
-    <p>No posts found.</p>
-  <?php } ?>
+       <?php } ?>
+    </article>
+    <?php 
+        the_content();
+} ?>
+    
+    <?php } else { ?>
+        <p>No posts found.</p>
+  <?php } 
+  
+  
+  ?>
   
 </main>
 <?php get_footer(); ?>
+
+<img src="" alt="">
