@@ -127,12 +127,14 @@ function singleRecipeImage($args = NULL)
     </div>
 <?php }
 
-// Laver søge function test.
-add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_script(
-        'recipe-search',
-        get_theme_file_uri('/modules/search.js')
-    );
-});
-
+function foodza_files()
+{
+    wp_enqueue_script('foodza_main_js', get_theme_file_uri('/js/test.js'), NULL, '1.0', true);
+    wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i');
+    wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    wp_enqueue_style('foodza_main_styles', get_theme_file_uri('/assets/css/style-index.css'));
+    wp_enqueue_style('foodza_extra_styles', get_theme_file_uri('/assets/css/index.css'));
+}
+// Runs foodza_files function on wp_enqueue_scripts action hook
+add_action('wp_enqueue_scripts', 'foodza_files');
 ?>

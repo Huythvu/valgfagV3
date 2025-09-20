@@ -52,3 +52,5 @@
     timer = setTimeout(() => search(q.value), 300);
   });
 })();
+
+alert("hello does it work?");
