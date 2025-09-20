@@ -56,8 +56,8 @@ async function search(term) {
     .then(res => res.json()) 
     .then(recipe => {
       out.innerHTML = (Array.isArray(recipe) && recipe.length)
-        ? `<ul>${recipe.map(p =>
-            `<li><a href="${p.link}">${p.title?.rendered ?? '(untitled)'}</a></li>`
+        ? `<ul>${recipe.map(item =>
+            `<li><a href="${item.link}">${item.title?.rendered ?? '(untitled)'}</a></li>`
           ).join('')}</ul>`
         : '<p>No recipes found.</p>';
     })
