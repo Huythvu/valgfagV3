@@ -14,13 +14,6 @@ $recipeImage = get_acpt_field([
        alt="<?php echo ($recipeImage->getAlt()); ?>">
 <?php } ?>
 
-<!-- <?php 
-    echo '<pre>';
-    // print_r($recipeImage->getSrc());
-    // print_r($ingredientList);
-    // print_r($instructionList);
-    echo '</pre>';
-?> -->
 
 <?php
 $ingredients = get_acpt_field([
@@ -50,12 +43,20 @@ $instruction = get_acpt_field([
 ]);
 
 if ($instruction) {
+    echo '<ol>';
     foreach ($instruction as $group) {
-        echo '<ul>';
         echo '<li>';
-        echo '<h3>' . esc_html($group['instruction']) . '</h3>';
+        echo '<h3>' . esc_html($group['instruction-steps']) . '</h3>';
         echo '</li>';
-        echo '</ul>';
     }
+    echo '</ol>';
 }
+?>
+
+<?php 
+    echo '<pre>';
+    // print_r($recipeImage->getSrc());
+    // print_r($ingredientList);
+    // print_r($instruction);
+    echo '</pre>';
 ?>

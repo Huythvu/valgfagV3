@@ -19,7 +19,7 @@ function custom_post_types() {
         'capability_type' => 'recipe',
         'map_meta_cap' => true,
         'show_in_rest' => true, // Det gør at wordpress bliver moderne
-        'supports' => array('title', 'editor', 'excerpt', 'custom-fields'), // excerpt hvis vi skal have en kort tekst.
+        'supports' => array('title', 'editor', 'excerpt', 'custom-fields', 'author'), // excerpt hvis vi skal have en kort tekst.
         'rewrite' => array('slug' => 'recipes'), // Vi ændrer urlen
         'has_archive' => true, // 
         'public' => true,
@@ -37,7 +37,7 @@ function custom_post_types() {
         'capability_type' => 'kitchenware',
         'map_meta_cap' => true,
         'show_in_rest' => true, // Det gør at wordpress bliver moderne
-        'supports' => array('title', 'editor', 'excerpt'), // excerpt hvis vi skal have en kort tekst.
+        'supports' => array('title', 'editor', 'excerpt', 'custom-fields', 'author'), // excerpt hvis vi skal have en kort tekst.
         'rewrite' => array('slug' => 'kitchenware'), // Vi ændrer urlen
         'has_archive' => true, // 
         'public' => true,
@@ -55,7 +55,7 @@ function custom_post_types() {
         'capability_type' => 'communitypost',
         'map_meta_cap' => true,
         'show_in_rest' => true, // Det gør at wordpress bliver moderne
-        'supports' => array('title', 'editor', 'excerpt'), // excerpt hvis vi skal have en kort tekst.
+        'supports' => array('title', 'editor', 'excerpt', 'custom-fields', 'author'), // excerpt hvis vi skal have en kort tekst.
         'rewrite' => array('slug' => 'communityposts'), // Vi ændrer urlen
         'has_archive' => true, // 
         'public' => true,
@@ -73,7 +73,7 @@ function custom_post_types() {
         'capability_type' => 'userprofile',
         'map_meta_cap' => true,
         'show_in_rest' => true, // Det gør at wordpress bliver moderne
-        'supports' => array('title', 'editor', 'excerpt'), // excerpt hvis vi skal have en kort tekst.
+        'supports' => array('title', 'editor', 'excerpt', 'custom-fields', 'author'), // excerpt hvis vi skal have en kort tekst.
         'rewrite' => array('slug' => 'userprofile'), // Vi ændrer urlen
         'has_archive' => true, // 
         'public' => true,
@@ -142,3 +142,5 @@ add_filter('login_headertitle', 'ourLoginTitle');
 function ourLoginTitle() {
     return get_bloginfo('name');
 }
+
+
