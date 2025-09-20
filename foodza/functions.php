@@ -1,5 +1,8 @@
 <?php
 
+show_admin_bar(true);
+
+
 function custom_post_types()
 {
     register_post_type("Recipe", array(
@@ -94,3 +97,23 @@ function custom_post_types()
 }
 
 add_action('init', 'custom_post_types');
+
+// Redirect users after login out of the admin area and to the homepage
+add_action('admin_init', 'redirectUsersToFrontend');
+function redirectUsersToFrontend() {
+    $ourCurrentUser = wp_get_current_user();
+    if(count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber')
+        {
+        wp_redirect(home_url()); 
+        exit;
+}
+}
+
+add_action('wp_loaded', 'noUserAdminBar');
+function noUserAdminBar() {
+    $ourCurrentUser = wp_get_current_user();
+    if(count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber')
+        {
+        show_admin_bar(false);
+}
+}

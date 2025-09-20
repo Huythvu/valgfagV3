@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>REMEMBER TO CHANGE THIS IN HEADER.php</title>
+    <?php wp_head(); ?>
 </head>
 <body>
     <header>
@@ -39,10 +40,3 @@
       </div>
     </div>
   </header>
-
-  <main>
-  
-
-  </main>
-</body>
-</html>
