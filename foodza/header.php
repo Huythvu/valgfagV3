@@ -29,7 +29,7 @@
                 <a href="<?php echo wp_logout_url(); ?>">
                 <span><?php echo get_avatar(wp_get_current_user()->ID); ?></span>
                 <span>Log Out</span>
-                <!-- <span><?php echo wp_get_current_user()->display_name; ?></span>  -->
+                <span><?php echo wp_get_current_user()->display_name; ?></span> 
                 </a>
             <?php } else { ?>
                 <a href="<?php echo wp_login_url(); ?>">Login</a>
