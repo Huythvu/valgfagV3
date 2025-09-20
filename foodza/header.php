@@ -12,8 +12,9 @@
       <h1>
         <a href="<?php echo home_url(); ?>"><strong>Foodza</strong></a>
       </h1>
-      <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-      <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
+      <!-- Navigation Menu For mobile i guess-->
+      <!-- <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+      <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i> -->
       <div>
         <nav>
           <ul>
