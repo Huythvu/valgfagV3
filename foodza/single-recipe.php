@@ -1,3 +1,5 @@
+<?php get_header(); ?>
+
 <?php
 $recipeImage = get_acpt_field([
     'post_id'    => get_the_ID(),
