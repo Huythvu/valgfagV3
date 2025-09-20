@@ -23,8 +23,9 @@
        alt="<?php echo ($postImage->getAlt()); ?>">
        <?php } ?>
     </article>
+    <div class="community-posts-list"></div>
     <?php 
-        the_content();
+    the_content();
 } ?>
     
     <?php } else { ?>
