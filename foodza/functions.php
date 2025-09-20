@@ -16,8 +16,8 @@ add_action('wp_enqueue_scripts', 'foodza_files');
 // OUR CUSTOM POST TYPES
 function custom_post_types() {
     register_post_type("Recipe", array(
-        // 'capability_type' => 'recipe',
-        // 'map_meta_cap' => true,
+        'capability_type' => 'recipe',
+        'map_meta_cap' => true,
         'show_in_rest' => true, // Det gør at wordpress bliver moderne
         'supports' => array('title', 'editor', 'excerpt', 'custom-fields'), // excerpt hvis vi skal have en kort tekst.
         'rewrite' => array('slug' => 'recipes'), // Vi ændrer urlen
@@ -34,8 +34,8 @@ function custom_post_types() {
     ));
 
     register_post_type("Kitchenware", array(
-        // 'capability_type' => 'kitchenware',
-        // 'map_meta_cap' => true,
+        'capability_type' => 'kitchenware',
+        'map_meta_cap' => true,
         'show_in_rest' => true, // Det gør at wordpress bliver moderne
         'supports' => array('title', 'editor', 'excerpt'), // excerpt hvis vi skal have en kort tekst.
         'rewrite' => array('slug' => 'kitchenware'), // Vi ændrer urlen
@@ -52,8 +52,8 @@ function custom_post_types() {
     ));
 
     register_post_type("Communitypost", array(
-        // 'capability_type' => 'communitypost',
-        // 'map_meta_cap' => true,
+        'capability_type' => 'communitypost',
+        'map_meta_cap' => true,
         'show_in_rest' => true, // Det gør at wordpress bliver moderne
         'supports' => array('title', 'editor', 'excerpt'), // excerpt hvis vi skal have en kort tekst.
         'rewrite' => array('slug' => 'communityposts'), // Vi ændrer urlen
@@ -70,8 +70,8 @@ function custom_post_types() {
     ));
 
     register_post_type("Userprofile", array(
-        // 'capability_type' => 'userprofile',
-        // 'map_meta_cap' => true,
+        'capability_type' => 'userprofile',
+        'map_meta_cap' => true,
         'show_in_rest' => true, // Det gør at wordpress bliver moderne
         'supports' => array('title', 'editor', 'excerpt'), // excerpt hvis vi skal have en kort tekst.
         'rewrite' => array('slug' => 'userprofile'), // Vi ændrer urlen
@@ -95,7 +95,11 @@ add_action('init', 'custom_post_types');
 add_action('admin_init', 'redirectUsersToFrontend');
 function redirectUsersToFrontend() {
     $ourCurrentUser = wp_get_current_user();
-    if(count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber')
+    if(count($ourCurrentUser->roles) == 1 AND 
+    $ourCurrentUser->roles[0] == 'home_cook' OR 
+    $ourCurrentUser->roles[0] == 'amateur_cook' OR 
+    $ourCurrentUser->roles[0] == 'professional_cook' OR 
+    $ourCurrentUser->roles[0] == 'company')
         {
         wp_redirect(home_url()); 
         exit;
@@ -107,7 +111,11 @@ function redirectUsersToFrontend() {
 add_action('wp_loaded', 'noUserAdminBar');
 function noUserAdminBar() {
     $ourCurrentUser = wp_get_current_user();
-    if(count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber')
+    if(count($ourCurrentUser->roles) == 1 AND 
+    $ourCurrentUser->roles[0] == 'home_cook' OR 
+    $ourCurrentUser->roles[0] == 'amateur_cook' OR 
+    $ourCurrentUser->roles[0] == 'professional_cook' OR 
+    $ourCurrentUser->roles[0] == 'company')
         {
         show_admin_bar(false);
 }
@@ -130,3 +138,7 @@ function ourLoginCSS() {
     wp_enqueue_style('foodza_extra_styles', get_theme_file_uri('/assets/css/index.css'));
 }
 
+add_filter('login_headertitle', 'ourLoginTitle');
+function ourLoginTitle() {
+    return get_bloginfo('name');
+}
