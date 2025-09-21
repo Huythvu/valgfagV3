@@ -91,7 +91,7 @@ if ($instruction) {
         </a>
     </div>
     <div class="related-recipes-text">
-        <a href="<?php echo get_the_permalink(71); ?>">
+        <a href="<?php echo get_the_permalink(); ?>">
             <img src="<?php echo (get_theme_file_uri('/assets/images/errorCat.png')); ?>" alt="Recipes">
             <p>brand</p>
             <p>navn</p>

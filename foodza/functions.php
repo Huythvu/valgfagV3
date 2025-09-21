@@ -38,10 +38,10 @@ function noUserAdminBar()
         count($ourCurrentUser->roles) == 1 and
         isset($ourCurrentUser->roles[0]) and
         (
-        $ourCurrentUser->roles[0] == 'home_cook' or
-        $ourCurrentUser->roles[0] == 'amateur_cook' or
-        $ourCurrentUser->roles[0] == 'professional_cook' or
-        $ourCurrentUser->roles[0] == 'company'
+            $ourCurrentUser->roles[0] == 'home_cook' or
+            $ourCurrentUser->roles[0] == 'amateur_cook' or
+            $ourCurrentUser->roles[0] == 'professional_cook' or
+            $ourCurrentUser->roles[0] == 'company'
         )
     ) {
         show_admin_bar(false);
