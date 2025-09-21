@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <main>
     <div class="cardGrid">
-        <?php if (have_posts()) { ?>
         <?php while (have_posts()) { 
         the_post(); 
         ?>
@@ -38,9 +37,6 @@
                 </div>
             </article>
         </a>
-        <?php } ?>
-        <?php } else { ?>
-        <p>No posts found.</p>
         <?php } ?>
     </div>
 </main>

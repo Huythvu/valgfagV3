@@ -34,21 +34,16 @@
   color: var(--color-white);
   font-family: "Quicksand", sans-serif;  
 }
-
-.cardContentLayout1{
-  width: 100%;
-}
 .cardContentLayout2{
   display: flex;
   justify-content: space-between;
 }
-.cardContentLayout2 p{
+.cardContentLayout2 p, .cardContentLayout p{
   font-size: var(--smallText-DeskAndMobile);
   color: var(--color-white);
   font-family: "Quicksand", sans-serif;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 8px;
 }
