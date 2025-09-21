@@ -72,4 +72,50 @@ img {
 
 
 
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-sage-green);
+  color: var(--color-white);
+  gap: var(--mobile-spacing-lg);
+  padding: var(--mobile-spacing-lg);
+
+}
+
+.footer h3 {
+  font-size: var(--desktop-body);
+}
+
+
+.footer a{
+    font-size: var(--smallText-DeskAndMobile);
+    text-decoration: underline;
+  
+  }
+
+  .footer ul {
+    list-style: none;
+  }
+
+.footer-socials h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--mobile-spacing-lg);
+}
+
+.copyrights {
+  display: flex;
+  justify-content:  end;
+}
+
+.fa-youtube, .fa-twitter, .fa-linkedin, .fa-facebook-f, .fa-instagram {
+  font-size: 60px;
+}
+
 
