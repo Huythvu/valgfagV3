@@ -1,0 +1,33 @@
+header nav {
+  background-color: var(--color-sage-green);
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding-inline: 32px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 32px; 
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+
+  font-size: var(--desktop-navbar-text);
+  font-weight: var(--font-weight-semibold);
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+img.avatar {
+  border-radius: 50%;
+}

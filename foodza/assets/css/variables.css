@@ -1,0 +1,59 @@
+/*  */
+/* Variables */
+/*  */
+:root {
+  /* Desktop Typography */
+  --desktop-h1: 48px;
+  --desktop-h2: 36px;
+  --desktop-h3: 28px;
+  --desktop-h4: 22px;
+  --desktop-body: 18px;
+  --desktop-breadcrumbs: 14px;
+  --desktop-navbar-text: 18px;
+
+  /* Mobile Typography */
+  --mobile-h1: 24px;
+  --mobile-h2: 22px;
+  --mobile-h3: 20px;
+  --mobile-h4: 18px;
+  --mobile-body: 16px;
+  --mobile-breadcrumbs: 12px;
+  --mobile-navbar-text: 16px;
+
+  /* Desktop and Mobile Typography */
+  --cta-DeskAndMobile: 18px;
+  --smallText-DeskAndMobile: 14px;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Colors */
+  --color-sage-green: #5B8A72;
+  --color-light-terracotta: #D88C66;
+  --color-apricot-yellow: #F2C14E;
+  --color-pastel-red: #FF7777;
+  --color-midnight-blue: #2D3648;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Desktop Spacing */
+  --desktop-spacing-sm: 8px;
+  --desktop-spacing-md: 16px;
+  --desktop-spacing-lg: 32px;
+  --desktop-spacing-xl: 64px;
+
+  /* Mobile Spacing */
+  --mobile-spacing-sm: 8px;
+  --mobile-spacing-md: 16px;
+  --mobile-spacing-lg: 24px;
+  --mobile-spacing-xl: 32px;
+
+  /* Desktop Margins */
+  --desktop-margin-md: 80px;
+
+  /* Mobile Margins */
+  --mobile-margin: 20px;
+}
