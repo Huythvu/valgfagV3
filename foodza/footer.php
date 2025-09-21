@@ -26,9 +26,21 @@
         <div>
             <h3>Users & Community</h3>
             <ul>
-                <li><a href="#">Login / Sign Up</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Newsletter Sign-up</a></li>
+                <li>
+                    <?php if (is_user_logged_in()) { ?>
+                        <a href="<?php echo wp_logout_url(); ?>">
+                            <span>Log Out</span>
+                        </a>
+                    <?php } else { ?>
+                        <a href="<?php echo wp_login_url(); ?>">Login</a>
+
+                <li>
+                    <a href="<?php echo wp_registration_url(); ?>">Sign Up</a>
+                </li>
+            <?php } ?>
+            </li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Newsletter Sign-up</a></li>
             </ul>
         </div>
 
