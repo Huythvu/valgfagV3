@@ -2,9 +2,10 @@
 //! FIX THESE "ERRORS" LATER, JUST PUT THEM HERE AS A PLACEHOLDER TO REMEMBER WE NEED TO MAKE THEM BUT FILES AND PATH ARE NOT 100P CORRECT
 function foodza_files(){
     // js files
-    wp_enqueue_script('foodza_test_js', get_theme_file_uri('/assets/js/test.js'), NULL, '1.0', true);
+    // wp_enqueue_script('foodza_test_js', get_theme_file_uri('/assets/js/test.js'), NULL, '1.0', true);
     wp_enqueue_script('foodza_author_js', get_theme_file_uri('/assets/js/author.js'), NULL, '1.0', true);
     wp_enqueue_script('foodza_search_js', get_theme_file_uri('/assets/js/search.js'), NULL, '1.0', true);
+    wp_enqueue_script('foodza_filter_js', get_theme_file_uri('/assets/js/filter.js'), NULL, '1.0', true);
     
     // google fonts and font awesome
     wp_enqueue_style('google-font-roboto', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i');
