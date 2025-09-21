@@ -38,20 +38,19 @@
             <a href="<?php echo wp_login_url(); ?>">Login</a>
             <a href="<?php echo wp_registration_url(); ?>">Sign Up</a>
           <?php } ?>
+          <a id="search-toggle" href="#" aria-label="Open search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </a>
+          <div id="search-wrap" hidden>
+            <input id="sogefelt" type="search" placeholder="Search recipes…" aria-label="Search recipes">
+            <div id="out" role="status" aria-live="polite"></div>
+          </div>
           <a href="#"><i class="fa fa-search q go out" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
     </div>
-    <!-- Trigger-ikonet (skal have en entydig selector) -->
-    <a id="search-toggle" href="#" aria-label="Open search">
-      <i class="fa fa-search" aria-hidden="true"></i>
-    </a>
 
-    <!-- Søgeboks + resultater (skjult fra start) -->
-    <div id="search-wrap" hidden>
-      <input id="sogefelt" type="search" placeholder="Search recipes…" aria-label="Search recipes">
-      <div id="out" role="status" aria-live="polite"></div>
-    </div>
+
 
   </header>
