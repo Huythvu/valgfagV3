@@ -45,7 +45,6 @@
             <input id="sogefelt" type="search" placeholder="Search recipes…" aria-label="Search recipes">
             <div id="out" role="status" aria-live="polite"></div>
           </div>
-          <a href="#"><i class="fa fa-search q go out" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
