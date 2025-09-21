@@ -60,4 +60,9 @@
                 </div>
             </div>
         </nav>
+        <div id="search-wrap" hidden>
+            <input id="sogefelt" type="search" placeholder="Search recipes…" aria-label="Search recipes">
+            <div id="out" role="status" aria-live="polite"></div>
+        </div>
     </header>
+    
