@@ -1,14 +1,13 @@
 <?php
-
-
 //! FIX THESE "ERRORS" LATER, JUST PUT THEM HERE AS A PLACEHOLDER TO REMEMBER WE NEED TO MAKE THEM BUT FILES AND PATH ARE NOT 100P CORRECT
 function foodza_files(){
-    wp_enqueue_script('foodza_main_js', get_theme_file_uri('/assets/js/test.js'), NULL, '1.0', true);
+    wp_enqueue_script('foodza_author_js', get_theme_file_uri('/assets/js/author.js'), NULL, '1.0', true);
+    wp_enqueue_script('foodza_test_js', get_theme_file_uri('/assets/js/test.js'), NULL, '1.0', true);
     wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i');
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style('foodza_main_styles', get_theme_file_uri('/assets/css/style-index.css'));
     wp_enqueue_style('foodza_extra_styles', get_theme_file_uri('/assets/css/index.css'));
-    wp_enqueue_style('foodza_extra_styles', get_theme_file_uri('/assets/css/spinner.css'));
+    wp_enqueue_style('foodza_spinner_styles', get_theme_file_uri('/assets/css/spinner.css'));
 }
 // Runs foodza_files function on wp_enqueue_scripts action hook
 add_action('wp_enqueue_scripts', 'foodza_files');
@@ -118,10 +117,13 @@ function noUserAdminBar()
     $ourCurrentUser = wp_get_current_user();
     if (
         count($ourCurrentUser->roles) == 1 and
+        isset($ourCurrentUser->roles[0]) and
+        (
         $ourCurrentUser->roles[0] == 'home_cook' or
         $ourCurrentUser->roles[0] == 'amateur_cook' or
         $ourCurrentUser->roles[0] == 'professional_cook' or
         $ourCurrentUser->roles[0] == 'company'
+        )
     ) {
         show_admin_bar(false);
     }
