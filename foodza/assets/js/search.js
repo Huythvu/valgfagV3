@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    showSpinner(); // show loader
+    showSpinner(); 
 
     // async
     const qs = `search=${encodeURIComponent(
