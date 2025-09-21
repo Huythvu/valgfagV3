@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 <main>
     <article class="community-article">
+      <section class="community-section">
         <h1>Create new post</h1>
         <input type="text" placeholder="What's on the menu today?" class="menu-textbox">
         <button class="button communityBtn">Create post</button>
         </input>
-        <section class="community-section">
             <?php while (have_posts()) {
               the_post();
               // the_title();
@@ -38,7 +38,8 @@
                 </div>
             </div>
             <?php
-            } ?>
+            } 
+            ?>
         </section>
     </article>
 </main>

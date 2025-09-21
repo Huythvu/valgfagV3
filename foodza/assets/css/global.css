@@ -125,9 +125,14 @@ img {
 }
 
 /* COMMUNITY */
-.container-community {
+.community-article {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.container-community {
+  max-width: 464px;
 }
 .community-author{
   display: flex;
@@ -169,7 +174,7 @@ img {
   height: 400px;
 }
 
-.front h1, h2 {
+.front h1, .front h2 {
   display: flex;
   justify-content: center;
   margin-bottom: var(--mobile-spacing-md);
