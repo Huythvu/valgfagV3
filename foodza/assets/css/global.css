@@ -77,5 +77,115 @@ img {
 
 
 
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-sage-green);
+  color: var(--color-white);
+  gap: var(--mobile-spacing-lg);
+  padding: var(--mobile-spacing-lg);
 
 
+}
+
+.footer h3 {
+  font-size: var(--desktop-body);
+}
+
+
+.footer a{
+    font-size: var(--smallText-DeskAndMobile);
+    text-decoration: underline;
+  
+  }
+
+  .footer ul {
+    list-style: none;
+  }
+
+.footer-socials h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--mobile-spacing-lg);
+}
+
+.copyrights {
+  display: flex;
+  justify-content:  end;
+}
+
+.fa-youtube, .fa-twitter, .fa-linkedin, .fa-facebook-f, .fa-instagram {
+  font-size: 60px;
+}
+
+/* COMMUNITY */
+.community-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-community {
+  max-width: 464px;
+}
+.community-author{
+  display: flex;
+  align-items: center;
+  gap: var(--mobile-spacing-md);
+  margin-bottom: var(--mobile-spacing-md);
+}
+.community-author-date{
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0;
+}
+.community-author-date p{
+  margin: 0;
+}
+.community-author-date h2{
+  margin: 0;
+}
+
+.community-section {
+}
+
+.community-content{
+  background-color: var(--color-sage-green);
+  margin-bottom: 2rem;
+  padding: 32px;
+  border-radius: 10px;
+}
+.recipe-img {
+  width: 400px;
+  height: auto;
+  
+}
+
+.front-hero img {
+  width: 100%;
+  height: 400px;
+}
+
+.front h1, .front h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--mobile-spacing-md);
+}
+
+.front-recipe img, .front-kitchen img, .front-community img {
+  width: 100%;
+  height: 350px;
+}
+
+.front p {
+  margin-bottom: var(--mobile-spacing-lg);
+  margin-top: var(--mobile-spacing-md);
+}

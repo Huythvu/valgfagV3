@@ -37,7 +37,9 @@
                 </div>
             </article>
         </a>
-        <?php } ?>
+        <?php } 
+        ?>
     </div>
+    <div class="pagination"><?php echo paginate_links();?></div>
 </main>
 <?php get_footer(); ?>
