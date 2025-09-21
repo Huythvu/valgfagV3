@@ -10,8 +10,7 @@ $recipeImage = get_acpt_field([
 
 <!-- Recipe Image, usually had esc_url for security, but didnt show img show removed -->
 <?php if ( $recipeImage ) { ?>
-  <img src="<?php echo ($recipeImage->getSrc()); ?>" 
-       alt="<?php echo ($recipeImage->getAlt()); ?>">
+<img src="<?php echo ($recipeImage->getSrc()); ?>" alt="<?php echo ($recipeImage->getAlt()); ?>">
 <?php } ?>
 
 
@@ -60,4 +59,3 @@ if ($instruction) {
     // print_r($instruction);
     echo '</pre>';
 ?>
-

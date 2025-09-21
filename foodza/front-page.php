@@ -1,18 +1,18 @@
 <?php get_header(); ?>
 
- 
- <?php if (have_posts()) : ?>
-        <?php while (have_posts()) : the_post(); ?>
-            <article>
-                <h2>
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h2>
-                <div><?php the_excerpt(); ?></div>
-            </article>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <p>No posts found.</p>
-    <?php endif; ?>
+
+<?php if (have_posts()) : ?>
+<?php while (have_posts()) : the_post(); ?>
+<article>
+    <h2>
+        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+    </h2>
+    <div><?php the_excerpt(); ?></div>
+</article>
+<?php endwhile; ?>
+<?php else : ?>
+<p>No posts found.</p>
+<?php endif; ?>
 
 
 
@@ -41,15 +41,15 @@ if (isset($_POST['user_role']) && is_user_logged_in() && !current_user_can('admi
 ?>
 <!-- User Role Change Form -->
 <?php if (is_user_logged_in()) : ?>
-  <form method="post">
+<form method="post">
     <select name="user_role">
-      <option value="home_cook">Home Cook</option>
-      <option value="amateur_cook">Amateur Cook</option>
-      <option value="professional_cook">Professional Cook</option>
-      <option value="company">Company</option>
+        <option value="home_cook">Home Cook</option>
+        <option value="amateur_cook">Amateur Cook</option>
+        <option value="professional_cook">Professional Cook</option>
+        <option value="company">Company</option>
     </select>
     <button type="submit">Change role</button>
-  </form>
+</form>
 <?php endif; ?>
 
 

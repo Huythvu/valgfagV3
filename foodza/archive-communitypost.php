@@ -1,39 +1,38 @@
 <?php get_header(); ?>
 <main>
-  <?php if (have_posts()) { ?>
+    <?php if (have_posts()) { ?>
     <?php while (have_posts()) { 
       the_post();
       // the_title();
       ?>
 
-<?php
+    <?php
     $postImage = get_acpt_field([
       'post_id'    => get_the_ID(),
       'box_name'   => 'post-section',
       'field_name' => 'post-image',
     ]);
     ?>
-<article>
-  <!-- Post Image, usually had esc_url for security, but didnt show img show removed -->
-  <?php if ($postImage) { ?>
-    <img src="<?php echo ($postImage->getSrc()); ?>" 
-    alt="<?php echo ($postImage->getAlt()); ?>">
-    <?php } ?>
+    <article>
+        <!-- Post Image, usually had esc_url for security, but didnt show img show removed -->
+        <?php if ($postImage) { ?>
+        <img src="<?php echo ($postImage->getSrc()); ?>" alt="<?php echo ($postImage->getAlt()); ?>">
+        <?php } ?>
 
-    <h2><?php echo get_the_author(); ?></h2>
+        <h2><?php echo get_the_author(); ?></h2>
 
-    <?php 
+        <?php 
     the_content();
   } ?>
-  </article>
-    
+    </article>
+
     <?php } else { ?>
-        <p>No posts found.</p>
-  <?php } 
+    <p>No posts found.</p>
+    <?php } 
   
   
   ?>
-  
+
 </main>
 <?php get_footer(); ?>
 
