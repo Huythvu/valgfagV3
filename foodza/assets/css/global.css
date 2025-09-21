@@ -35,6 +35,11 @@ h3 {
 h4 {
   font-size: var(--mobile-h4);
 }
+.navText{
+  font-family: "Quicksand", sans-serif;
+  font-size: var(--desktop-navbar-text);
+  font-weight: var(--font-weight-semibold);
+}
 
 
 /*  */
@@ -69,6 +74,7 @@ img {
   display: block;
   object-fit: cover;
 }
+
 
 
 

@@ -1,6 +1,14 @@
 <?php get_header(); ?>
 
 <?php
+while (have_posts()) {
+    the_post();
+    the_title();
+    the_content();
+}
+     ?>
+
+<?php
 $recipeImage = get_acpt_field([
     'post_id'    => get_the_ID(),
     'box_name'   => 'single-recipe-image',

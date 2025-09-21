@@ -8,8 +8,9 @@ function foodza_files(){
     
     // google fonts and font awesome
     wp_enqueue_style('google-font-roboto', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i');
-    wp_enqueue_style('google-font-quicksand', ' //fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+    wp_enqueue_style('google-font-quicksand', '//fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    wp_enqueue_style('material-symbols-outlined', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
     
     // css styles
     wp_enqueue_style('foodza_main_styles', get_theme_file_uri('/assets/css/style-index.css'));
@@ -20,10 +21,10 @@ function foodza_files(){
     wp_enqueue_style('foodza_header_styles', get_theme_file_uri('/assets/css/layout/header.css'));
     wp_enqueue_style('foodza_footer_styles', get_theme_file_uri('/assets/css/layout/footer.css'));
     // Page specific css styles
-    wp_enqueue_style('foodza_recipe_styles', get_theme_file_uri('/assets/css/page/single-recipe.css'));
-    wp_enqueue_style('foodza_archive_styles', get_theme_file_uri('/assets/css/page/archive.css'));
-    wp_enqueue_style('foodza_userprofile_styles', get_theme_file_uri('/assets/css/page/single-userprofile.css'));
-    wp_enqueue_style('foodza_frontpage_styles', get_theme_file_uri('/assets/css/page/front-page.css'));
+    wp_enqueue_style('foodza_recipe_styles', get_theme_file_uri('/assets/css/pages/single-recipe.css'));
+    wp_enqueue_style('foodza_archive_styles', get_theme_file_uri('/assets/css/pages/archive.css'));
+    wp_enqueue_style('foodza_userprofile_styles', get_theme_file_uri('/assets/css/pages/single-userprofile.css'));
+    wp_enqueue_style('foodza_frontpage_styles', get_theme_file_uri('/assets/css/pages/front-page.css'));
     // Component specific css styles
     wp_enqueue_style('foodza_components_styles', get_theme_file_uri('/assets/css/components.css'));
     // Variables css styles
