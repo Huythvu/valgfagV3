@@ -18,7 +18,7 @@
 
 <!-- User Role Information -->
 <?php
-if ( is_user_logged_in() ) {
+if (is_user_logged_in()) {
   $user = wp_get_current_user();
   echo '<p>Current role: ' . esc_html( implode(', ', $user->roles) ) . '</p>';
 } else {
@@ -29,10 +29,10 @@ if ( is_user_logged_in() ) {
 <!-- User Role Change Form -->
 <?php
 // Handle form submit
-if ( isset($_POST['user_role']) && is_user_logged_in() ) {
+if (isset($_POST['user_role']) && is_user_logged_in() && !current_user_can('administrator')) {
   $allowed = ['home_cook', 'amateur_cook', 'professional_cook', 'company'];
   $picked  = sanitize_key($_POST['user_role']);
-  if ( in_array($picked, $allowed, true) ) {
+  if (in_array($picked, $allowed, true)) {
     $user = wp_get_current_user();
     $user->set_role($picked);
     echo '<p>Role changed to: ' . esc_html($picked) . '</p>';
@@ -40,7 +40,7 @@ if ( isset($_POST['user_role']) && is_user_logged_in() ) {
 }
 ?>
 <!-- User Role Change Form -->
-<?php if ( is_user_logged_in() ) : ?>
+<?php if (is_user_logged_in()) : ?>
   <form method="post">
     <select name="user_role">
       <option value="home_cook">Home Cook</option>
