@@ -48,13 +48,4 @@
         </div>
       </div>
     </div>
-    </div>
-    
-    <!-- Trigger-ikonet (skal have en entydig selector)
-    <a id="search-toggle" href="#" aria-label="Open search">
-      <i class="fa fa-search" aria-hidden="true"></i>
-    </a> -->
-
-
-
-  </header>
+    </header>
