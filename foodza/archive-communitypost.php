@@ -1,37 +1,52 @@
 <?php get_header(); ?>
 <main>
-    <?php if (have_posts()) { ?>
-    <?php while (have_posts()) { 
-      the_post();
-      // the_title();
-      ?>
+  <article class="community-article">
+    <h1>Create new post</h1>
+    <input
+      type="text"
+      placeholder="What's on the menu today?"
+      class="menu-textbox">
+    <button class="btn">Create post</button>
+    </input>
+    <section class="community-section">
 
-    <?php
-    $postImage = get_acpt_field([
-      'post_id'    => get_the_ID(),
-      'box_name'   => 'post-section',
-      'field_name' => 'post-image',
-    ]);
-    ?>
-    <article>
-        <!-- Post Image, usually had esc_url for security, but didnt show img show removed -->
-        <?php if ($postImage) { ?>
-        <img src="<?php echo ($postImage->getSrc()); ?>" alt="<?php echo ($postImage->getAlt()); ?>">
-        <?php } ?>
+      <?php if (have_posts()) { ?>
+        <?php while (have_posts()) {
+          the_post();
+          // the_title();
+        ?>
 
-        <h2><?php echo get_the_author(); ?></h2>
+          <?php
+          $postImage = get_acpt_field([
+            'post_id'    => get_the_ID(),
+            'box_name'   => 'post-section',
+            'field_name' => 'post-image',
+          ]);
+          ?>
+          <div class="author-image">
+            <?php echo get_avatar(get_the_author_meta('ID'), 50); ?>
+            <h2><?php echo get_the_author(); ?></h2>
+          </div>
+          <!-- Post Image, usually had esc_url for security, but didnt show img show removed -->
 
-        <?php 
-    the_content();
-  } ?>
-    </article>
+          <div class="container-community">
+            <?php if ($postImage) { ?>
+              <img class="recipe-img" src="<?php echo ($postImage->getSrc()); ?>" alt="<?php echo ($postImage->getAlt()); ?>">
+            <?php } ?>
 
-    <?php } else { ?>
-    <p>No posts found.</p>
-    <?php } 
-  
-  
-  ?>
+          <?php
+          the_content();
+        } ?>
+          </div>
+    </section>
+  </article>
+
+<?php } else { ?>
+  <p>No posts found.</p>
+<?php }
+
+
+?>
 
 </main>
 <?php get_footer(); ?>

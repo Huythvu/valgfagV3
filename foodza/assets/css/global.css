@@ -118,4 +118,17 @@ img {
   font-size: 60px;
 }
 
+.container-community {
+  display: flex;
+  flex-direction: column;
+}
 
+.community-section {
+
+
+}
+
+.recipe-img {
+  width: 400px;
+  height: auto;
+}
