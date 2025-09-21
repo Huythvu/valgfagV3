@@ -132,3 +132,24 @@ img {
   width: 400px;
   height: auto;
 }
+
+.front-hero img {
+  width: 100%;
+  height: 400px;
+}
+
+.front h1, h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--mobile-spacing-md);
+}
+
+.front-recipe img, .front-kitchen img, .front-community img {
+  width: 100%;
+  height: 350px;
+}
+
+.front p {
+  margin-bottom: var(--mobile-spacing-lg);
+  margin-top: var(--mobile-spacing-md);
+}
