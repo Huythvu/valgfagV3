@@ -198,6 +198,7 @@ img {
   width: 70%;
   background-color: var(--color-light-terracotta);
   color: var(--color-white);
+  height: auto;
 }
 
 .recipe-text {
@@ -205,6 +206,7 @@ img {
   background-color: var(--color-sage-green);
   width: 30%;
   padding: 10px;
+  height: auto;
 }
 
 .related-recipes {
