@@ -2,13 +2,14 @@
 
 
 //! FIX THESE "ERRORS" LATER, JUST PUT THEM HERE AS A PLACEHOLDER TO REMEMBER WE NEED TO MAKE THEM BUT FILES AND PATH ARE NOT 100P CORRECT
-function foodza_files(){
-    wp_enqueue_script('foodza_main_js', get_theme_file_uri('/assets/js/test.js'), NULL, '1.0', true);
+function foodza_files()
+{
     wp_enqueue_style('custom-google-font', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i');
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style('foodza_main_styles', get_theme_file_uri('/assets/css/style-index.css'));
     wp_enqueue_style('foodza_extra_styles', get_theme_file_uri('/assets/css/index.css'));
     wp_enqueue_style('foodza_extra_styles', get_theme_file_uri('/assets/css/spinner.css'));
+    wp_enqueue_script('foodza_main_js', get_theme_file_uri('/assets/js/search.js'), NULL, '1.0', true);
 }
 // Runs foodza_files function on wp_enqueue_scripts action hook
 add_action('wp_enqueue_scripts', 'foodza_files');
@@ -151,5 +152,3 @@ function ourLoginTitle()
 {
     return get_bloginfo('name');
 }
-
-
