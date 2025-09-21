@@ -118,19 +118,44 @@ img {
   font-size: 60px;
 }
 
+/* COMMUNITY */
 .container-community {
   display: flex;
   flex-direction: column;
 }
-
-.community-section {
-
-
+.community-author{
+  display: flex;
+  align-items: center;
+  gap: var(--mobile-spacing-md);
+  margin-bottom: var(--mobile-spacing-md);
+}
+.community-author-date{
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0;
+}
+.community-author-date p{
+  margin: 0;
+}
+.community-author-date h2{
+  margin: 0;
 }
 
+.community-section {
+}
+
+.community-content{
+  background-color: var(--color-sage-green);
+  margin-bottom: 2rem;
+  padding: 32px;
+  border-radius: 10px;
+}
 .recipe-img {
   width: 400px;
   height: auto;
+  
 }
 
 .front-hero img {
