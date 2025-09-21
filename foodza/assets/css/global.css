@@ -220,4 +220,18 @@ img {
   margin-bottom: var(--mobile-spacing-xl);
   margin: 10px;
   width: 25%;
+  padding-bottom: 10px;
+  color: var(--color-white);
+}
+.related-recipes-text img {
+  border-top-left-radius: 10px;
+}
+
+.form {
+  height: 200px;
+  padding-bottom: 150px;
+  width: 70%;
+}
+
+.review-container {
 }

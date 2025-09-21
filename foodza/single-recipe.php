@@ -73,10 +73,21 @@ if ($instruction) {
     echo '</ol>';
 }
 ?>
+<div class="review-container">
+    <h3>Submit a review</h3>
+    <p>stjerner</p>
+    <p>Tell us more about your experience</p>
+    <form>
+        <input class="form" type="text" placeholder="What made your experience great? REmember to be honest, helpful, 
+and construvtive!" name="msg">
+    </form>
+    <button class="button" type="submit">Send</button>
+</div>
+
 <div class="related-recipes">
     <div class="related-recipes-text">
         <a href="<?php echo get_the_permalink(67); ?>">
-            <img src="<?php echo (get_theme_file_uri('/assets/images/errorCat.png')); ?>" alt="Recipes">
+            <img src="<?php echo (get_theme_file_uri('/assets/images/vegan_apple_pie.jpg')); ?>" alt="Recipes">
             <p>brand</p>
             <p>navn</p>
             <p>stjerner</p>
@@ -84,7 +95,7 @@ if ($instruction) {
     </div>
     <div class="related-recipes-text">
         <a href="<?php echo get_the_permalink(70); ?>">
-            <img src="<?php echo (get_theme_file_uri('/assets/images/errorCat.png')); ?>" alt="Recipes">
+            <img src="<?php echo (get_theme_file_uri('/assets/images/chicken_in_a_pot.jpg')); ?>" alt="Recipes">
             <p>brand</p>
             <p>navn</p>
             <p>stjerner</p>
@@ -92,7 +103,7 @@ if ($instruction) {
     </div>
     <div class="related-recipes-text">
         <a href="<?php echo get_the_permalink(); ?>">
-            <img src="<?php echo (get_theme_file_uri('/assets/images/errorCat.png')); ?>" alt="Recipes">
+            <img src="<?php echo (get_theme_file_uri('/assets/images/pot-roast_pork_enchaud.jpg')); ?>" alt="Recipes">
             <p>brand</p>
             <p>navn</p>
             <p>stjerner</p>
