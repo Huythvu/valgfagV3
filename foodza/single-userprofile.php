@@ -1,48 +1,91 @@
-<?php get_header();
-
-while (have_posts()) {
+<?php get_header(); ?>
+<main>
+    <?php
+while ( have_posts() ) {
   the_post();
-  the_title();
-  the_content();
-  ?>
-  <!-- User Display Name -->
-<span><?php echo wp_get_current_user()->display_name; ?></span>
-<?php 
 }
-// Display current user role
-if (is_user_logged_in()) {
-  $user = wp_get_current_user();
-  echo '<p>Current role: ' . esc_html( implode(', ', $user->roles) ) . '</p>';
-} else {
-  echo '<p>You are not logged in.</p>';
-}
+?>
+    <?php
+$userGender = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'user-tags',
+  'field_name' => 'gender'
+]);
+$userBirthday = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'user-tags',
+  'field_name' => 'birthday'
+]);
+$userLocation = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'user-tags',
+  'field_name' => 'location'
+]);
+$userEducation = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'user-expertise',
+  'field_name' => 'user-education'
+]);
+$userExperience = get_acpt_field([
+  'post_id'    => get_the_ID(),
+  'box_name'   => 'user-expertise',
+  'field_name' => 'user-experience'
+]);
 ?>
 
-<!-- User Role Change Form -->
-<?php
-// Handle form submit
-if (isset($_POST['user_role']) && is_user_logged_in() && !current_user_can('administrator')) {
-  $allowed = ['home_cook', 'amateur_cook', 'professional_cook', 'company'];
-  $picked  = sanitize_key($_POST['user_role']);
-  if (in_array($picked, $allowed, true)) {
-    $user = wp_get_current_user();
-    $user->set_role($picked);
-    echo '<p>Role changed to: ' . esc_html($picked) . '</p>';
-  }
-}
+    <?php
+if($userLocation){
+$userLocationString = $userLocation['country'] . ', ' . $userLocation['city'];
+} 
 ?>
-<!-- User Role Change Form -->
-<?php if (is_user_logged_in()) : ?>
-<form method="post">
-    <select name="user_role">
-        <option value="home_cook">Home Cook</option>
-        <option value="amateur_cook">Amateur Cook</option>
-        <option value="professional_cook">Professional Cook</option>
-        <option value="company">Company</option>
-    </select>
-    <button type="submit">Change role</button>
-</form>
-<?php endif; 
 
-get_footer();
+    <?php
+if($userBirthday){
+  $userBirthdayString = $userBirthday['object']->format('Y-m-d');
+} 
 ?>
+    <div class="userProfilePage">
+        <div class="userProfileContainer">
+            <div class="userTopContainer">
+                <div class="userTags">
+                    <span class="userProfileImg"><?php echo get_avatar(get_the_author_meta('ID'), 200); ?></span>
+                    <ul>
+                        <li class="user-display-name">Name: <?php echo get_the_author() ?></li>
+                        <li class="user-gender">Gender: <?php echo $userGender; ?></li>
+                        <li class="user-birthday">Birthday: <?php echo $userBirthdayString; ?></li>
+                        <li class="user-location">Location: <?php echo $userLocationString; ?></li>
+                        <li class="user-account-creation">Account Created:
+                            <?php echo get_the_date('d-m-Y', get_the_ID()); ?>
+                        </li>
+                    </ul>
+                </div>
+                <div class="userDescription">
+                    <div class="userDescriptionTopContent">
+                        <h2>About me</h2>
+                        <h2>Followers:</h2>
+                    </div>
+                    <hr>
+                    <div class="userDescriptionBottomContent">
+                        <p><?php echo get_the_content(); ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="userExpertise">
+                <?php if($userEducation){ ?>
+                <h2>My Education</h2>
+                <p><?php echo $userEducation ?></p>
+                <hr>
+                <?php } ?>
+                <?php if($userExperience){ ?>
+                <h2>My Experience</h2>
+                <p><?php echo $userExperience ?></p>
+                <?php } ?>
+            </div>
+            <div class="userRecipes">
+              
+            </div>
+        </div>
+    </div>
+
+</main>
+<?php get_footer(); ?>

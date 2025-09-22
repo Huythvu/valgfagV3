@@ -31,37 +31,39 @@
 
                 <div class="user-profile">
                     <?php
-      $profile = get_posts([
-        'post_type'   => 'userprofile',
-        'author'      => get_current_user_id(),
-        'numberposts' => 1,
-      ]);
-      if ($profile) {
-        $profile_url = get_permalink($profile[0]->ID);
-      }
-      ?>
+                    $profile = get_posts([
+                        'post_type'   => 'userprofile',
+                        'author'      => get_current_user_id(),
+                        'numberposts' => 1,
+                    ]);
+                    if ($profile) {
+                        $profile_url = get_permalink($profile[0]->ID);
+                    }
+                    ?>
                     <div class="user-info">
                         <div class="auth-buttons">
                             <?php if (is_user_logged_in()) { ?>
-                            <a class="button logOut" href="<?php echo wp_logout_url(); ?>">
-                                <span>Log Out</span>
-                            </a>
-                            <div>
-                                <a href="<?php echo $profile_url; ?>">
-                                    <?php echo get_avatar(wp_get_current_user()->ID, 50); ?>
+                                <a class="button logOut" href="<?php echo wp_logout_url(); ?>">
+                                    <span>Log Out</span>
                                 </a>
-                            </div>
+                                <div>
+                                    <a href="<?php echo $profile_url; ?>">
+                                        <?php echo get_avatar(wp_get_current_user()->ID, 50); ?>
+                                    </a>
+                                </div>
                             <?php } else { ?>
-                            <a class="button logIn" href="<?php echo wp_login_url(); ?>">Login</a>
-                            <a class="button signUp" href="<?php echo wp_registration_url(); ?>">Sign Up</a>
+                                <a class="button logIn" href="<?php echo wp_login_url(); ?>">Login</a>
+                                <a class="button signUp" href="<?php echo wp_registration_url(); ?>">Sign Up</a>
                             <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
-        <div id="search-wrap" hidden>
-            <input id="sogefelt" type="search" placeholder="Search recipes…" aria-label="Search recipes">
-            <div id="out" role="status" aria-live="polite"></div>
+        <div class="search-container">
+            <div id="search-wrap" hidden>
+                <input id="sogefelt" type="search" placeholder="Search recipes…" aria-label="Search recipes">
+                <div id="out" role="status" aria-live="polite"></div>
+            </div>
         </div>
     </header>
