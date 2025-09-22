@@ -1,0 +1,61 @@
+.userProfilePage{
+    display: flex;
+    justify-content: center;
+}
+.userProfileContainer{
+display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: fit-content;
+}
+.userTopContainer{
+    display: flex;
+    gap: 32px;
+}
+.userTags {
+    position: relative;
+    background-color: var(--color-sage-green);
+    min-width: 350px;
+    width: fit-content;
+    height: fit-content;
+    padding: 64px;
+    padding-top: 175px;
+    border-radius: 10px;
+    border: 2px solid var(--color-black);
+}
+.userProfileImg{
+position: absolute;
+border: 2px solid var(--color-black);
+border-radius: 50%;
+top: 5%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.userProfileImg img.avatar:hover{
+    transform: none;
+}
+.userDescription{
+    background-color: var(--color-sage-green);
+    border: 2px solid var(--color-black);
+    border-radius: 10px;
+    padding: 32px;
+}
+.userDescriptionTopContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 128px;
+}
+.userDescriptionBottomContent{
+    margin-top: 16px;
+}
+.userDescriptionBottomContent p{
+    font-size: 18px;
+    line-height: 1.6;
+}
+.userExpertise{
+    background-color: var(--color-sage-green);
+    padding: 64px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
