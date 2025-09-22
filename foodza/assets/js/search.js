@@ -44,43 +44,39 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape" && isOpen()) closeSearch(); // Her laver vi en eventlistener at når man trykker på en knap, skal den gå ud af søgefeltet. escape && isopen er den open? så closeSearch luk den.
   });
 
-  async function search(term) {
-    const searchTerm = term.trim();
-    if (!searchTerm) {
-      out.innerHTML = "";
-      hideSpinner();
-      return;
-    }
-
-    showSpinner(); 
-
-    // async
-    const qs = `search=${encodeURIComponent(
-      searchTerm
-    )}&per_page=20&_fields=id,link,title`;
-    fetch(`/wp-json/wp/v2/recipe?${qs}`)
-      .then((res) => res.json())
-      .then((recipe) => {
-        out.innerHTML =
-          Array.isArray(recipe) && recipe.length
-            ? `<ul>${recipe
-                .map(
-                  (item) =>
-                    `<li><a href="${item.link}">${
-                      item.title?.rendered ?? "(untitled)"
-                    }</a></li>`
-                )
-                .join("")}</ul>`
-            : "<p>No recipes found.</p>";
-      })
-      .catch(() => {
-        out.textContent = "Something went wrong.";
-      })
-
-      .finally(() => {
-        hideSpinner();
-      });
+ async function search(term) {
+  const searchTerm = term.trim();
+  if (!searchTerm) {
+    out.innerHTML = "";
+    hideSpinner();
+    return;
   }
+
+  showSpinner(); // vis loader
+
+  const qs = `search=${encodeURIComponent(searchTerm)}&per_page=20&_fields=id,link,title`; // encodeURIComponent sikrer hvis der er mellemrum eller special tegn som øæå i søgningen vil den bilve håndreret korrekt
+
+  try {
+    const res = await fetch(`/wp-json/wp/v2/recipe?${qs}`); // vi fetcher og bruger den variabel vi konstateret længere oppe som er qs den sørger for at vi ikke får fejl når vi skriver mellemrum eller specialtegn.
+    const recipes = await res.json();
+
+    if (Array.isArray(recipes) && recipes.length) {
+      out.innerHTML = `
+        <ul>
+          ${recipes.map(item =>
+            `<li><a href="${item.link}">${item.title?.rendered ?? "(untitled)"}</a></li>`
+          ).join("")}
+        </ul>`;
+    } else {
+      out.innerHTML = "<p>No recipes found.</p>";
+    }
+  } catch (err) {
+    out.textContent = "Something went wrong.";
+  } finally {
+    hideSpinner();
+  }
+}
+
 
   // Events
   søgefelt.addEventListener("input", () => {
