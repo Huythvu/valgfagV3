@@ -41,3 +41,21 @@
     margin-top: var(--desktop-spacing-sm);
     margin-bottom: var(--desktop-spacing-xl);
 }
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+#sogefelt {
+  width: 1000px;
+  height: 100px;
+  padding: 20px;
+
+}
+
+#out {
+  background-color: var(--color-sage-green);
+  width: 100%;
+  color: white;
+  text-decoration: underline;
+  padding: 50px;
+}
