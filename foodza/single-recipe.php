@@ -74,11 +74,13 @@ if ($instruction) {
 }
 ?>
 <div class="review-container">
-    <h3>Submit a review</h3>
-    <p>stjerner</p>
-    <p>Tell us more about your experience</p>
+    <div class="review-text">
+        <h3>Submit a review</h3>
+        <p>stjerner</p>
+        <p>Tell us more about your experience</p>
+    </div>
     <form>
-        <input class="form" type="text" placeholder="What made your experience great? REmember to be honest, helpful, 
+        <input class="form" type="text" placeholder="What made your experience great? Remember to be honest, helpful, 
 and construvtive!" name="msg">
     </form>
     <button class="button" type="submit">Send</button>
