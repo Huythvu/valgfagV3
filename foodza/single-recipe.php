@@ -15,22 +15,39 @@ $recipeImage = get_acpt_field([
 <div class="container-recipe">
     <div class="recipe-image-content">
         <?php if ($recipeImage) { ?>
-        <img src="<?php echo ($recipeImage->getSrc()); ?>" alt="<?php echo ($recipeImage->getAlt()); ?>">
+            <img src="<?php echo ($recipeImage->getSrc()); ?>" alt="<?php echo ($recipeImage->getAlt()); ?>">
         <?php } ?>
         <div class="content-text">
-            <?php echo get_the_author();?>
+            <?php echo get_the_author(); ?>
             <p><?php the_content(); ?></p>
         </div>
     </div>
     <div class="recipe-text">
         <h1><?php the_title(); ?></h1>
-        <p><?php the_terms(get_the_ID(), 'cook-time', 'Cook-time:'); ?></p>
-        <p><?php the_terms(get_the_ID(), 'cook-level', 'Cook-level:'); ?></p>
-        <p><?php the_terms(get_the_ID(), 'dietary', 'Dietary:'); ?></p>
-        <p><?php the_terms(get_the_ID(), 'meal-type', 'Meal-type:'); ?></p>
-        <p><?php the_terms(get_the_ID(), 'tool', 'Tool:'); ?></p>
+        <p><?php the_terms(get_the_ID(), 'cook-time', 'Cook time: '); ?></p>
+        <p><?php the_terms(get_the_ID(), 'cook-level', 'Cook-level: '); ?></p>
+        <p><?php the_terms(get_the_ID(), 'dietary', 'Dietary: '); ?></p>
+        <p><?php the_terms(get_the_ID(), 'meal-type', 'Meal-type: '); ?></p>
+        <p><?php the_terms(get_the_ID(), 'tool', 'Tool: '); ?></p>
         <!-- https://developer.wordpress.org/reference/functions/the_terms/?utm_source=chatgpt.com The_terms er en function i wordpress her kan jeg direkte fange mine taxonomier ved hjælp af the_terms også bare skrive category name jeg har angivet. -->
+
+        <?php
+        $user = wp_get_current_user();
+
+        if ($user->roles[0] === 'professional_cook') {
+            echo '<button type="button">Suggest</button>';
+            echo '<button type="button">Edit</button>';
+        } else if ($user->roles[0] === 'amateur_cook') {
+            echo '<button type="button">Suggest</button>';
+        } else if ($user->roles[0] === 'home_cook') {
+            echo '<button type="button">Request</button>';
+        }
+
+        ?>
+
+
     </div>
+
 </div>
 <?php
 $ingredients = get_acpt_field([
@@ -45,35 +62,35 @@ $instruction = get_acpt_field([
 ]);
 ?>
 <div class="recipeContent">
-<div class="recipeInstruction">
-<?php
-if ($instruction) {
-    echo '<ol>';
-    foreach ($instruction as $group) {
-        echo '<li>';
-        echo '<h3>' . esc_html($group['instruction-steps']) . '</h3>';
-        echo '</li>';
-    }
-    echo '</ol>';
-}
-?>
-</div>
-<div class="recipeIngredients">
-<?php
-if ($ingredients) {
-    foreach ($ingredients as $group) {
-        echo '<h3>' . esc_html($group['ingredient-category']) . '</h3>';
-        echo '<ul>';
-
-        // $group['ingredient-list'] is an array with one element (the list of items)
-        foreach ($group['ingredient-list'][0] as $item) {
-            echo '<li>' . esc_html($item['ingredient']) . '</li>';
+    <div class="recipeInstruction">
+        <?php
+        if ($instruction) {
+            echo '<ol>';
+            foreach ($instruction as $group) {
+                echo '<li>';
+                echo '<h3>' . esc_html($group['instruction-steps']) . '</h3>';
+                echo '</li>';
+            }
+            echo '</ol>';
         }
-        echo '</ul>';
-    }
-}
-?>
-</div>
+        ?>
+    </div>
+    <div class="recipeIngredients">
+        <?php
+        if ($ingredients) {
+            foreach ($ingredients as $group) {
+                echo '<h3>' . esc_html($group['ingredient-category']) . '</h3>';
+                echo '<ul>';
+
+                // $group['ingredient-list'] is an array with one element (the list of items)
+                foreach ($group['ingredient-list'][0] as $item) {
+                    echo '<li>' . esc_html($item['ingredient']) . '</li>';
+                }
+                echo '</ul>';
+            }
+        }
+        ?>
+    </div>
 </div>
 
 <div class="review-container">
